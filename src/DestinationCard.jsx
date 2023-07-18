@@ -1,7 +1,8 @@
+import './DestinationCard.css'
 
 const DestinationCard = ({name, imageURL, notes, international}) => {
     return (
-        <div>
+        <div className='dest-container'>
             <p>{name}</p>
             <p>{international}</p>
             <p>{notes}</p>
