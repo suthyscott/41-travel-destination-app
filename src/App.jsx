@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import Header from './Header'
 import AddDestination from './AddDestination'
+import DestinationCard from './DestinationCard'
 import axios from 'axios'
 
 function App() {
@@ -12,11 +13,16 @@ function App() {
       .then(res => setDestinations(res.data))
   }, [])
 
-  console.log('hit App.jsx')
+  console.log('hit App.jsx', destinations)
   
   return (
     <>
       <Header/>
+      <main>
+        {destinations.map(dest => {
+          return <DestinationCard name={dest.name} imageURL={dest.imageURL} notes={dest.notes} international={dest.international}/>
+        })}
+      </main>
     </>
   )
 }
