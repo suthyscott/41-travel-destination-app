@@ -22,8 +22,6 @@ function App() {
         getAllDestinations()
     }, [])
 
-    console.log("hit App.jsx", destinations)
-
     return (
         <>
             <Header />
@@ -36,7 +34,9 @@ function App() {
                                 imageURL={dest.imageURL}
                                 notes={dest.notes}
                                 international={dest.international}
-
+                                id={dest.id}
+                                key={dest.id}
+                                getAllDestinations={getAllDestinations}
                             />
                         )
                     })}
