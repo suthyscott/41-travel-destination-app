@@ -23,7 +23,7 @@ const AddDestination = ({getAllDestinations}) => {
 
     return (
         <>
-            <form onSubmit={e => handleSubmit(e)}>
+            <form onSubmit={e => handleSubmit(e)} className="border-[3px] border-red-500 border-solid">
                 <input placeholder="name" value={name} onChange={e => setName(e.target.value)} />
                 <input placeholder="notes" value={notes} onChange={e => setNotes(e.target.value)} />
                 <input type="checkbox" checked={international} onChange={() => setInternational(!international)}/>

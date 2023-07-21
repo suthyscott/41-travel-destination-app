@@ -8,14 +8,14 @@ import axios from "axios"
 function App() {
     const [destinations, setDestinations] = useState([])
 
-    const getAllDestinations = () => {
-        axios
-            .get(
-                `/api/destinations?apiKey=${
-                    import.meta.env.VITE_APP_API_KEY
-                }`
-            )
-            .then(res => setDestinations(res.data))
+    const getAllDestinations = async () => {
+        try {
+            let res = await axios.get(`/api/destinations?apiKey=${import.meta.env.VITE_APP_API_KEY}`)
+            console.log(res)
+            setDestinations(res.data)
+        } catch(err){
+            console.log(err)
+        }
     }
 
     useEffect(() => {
