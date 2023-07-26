@@ -1,7 +1,9 @@
 import './DestinationCard.css'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const DestinationCard = ({name, imageURL, notes, international, id, getAllDestinations}) => {
+    const navigate = useNavigate()
 
     const deleteDestination = () => {
         axios.delete(`/api/destinations/${id}?apiKey=supersecureapikey`)
@@ -16,6 +18,7 @@ const DestinationCard = ({name, imageURL, notes, international, id, getAllDestin
             <p>{notes}</p>
             <img src={imageURL}/>
             <button onClick={() => deleteDestination()}>Delete</button>
+            <button onClick={() => navigate(`/details/${id}`)}>See more details</button>
         </div>
     )
 }
